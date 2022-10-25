@@ -1,27 +1,49 @@
 name: "Deploy"
 
 on:
-  release:
-    types:
-      - published
   push:
     branches-ignore:
       - main
-  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
-  vercel: 
+  test:
     runs-on: ubuntu-latest
-    name: "Deploy front-end"
+    name: "Roda os testes da aplicação"
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x, 15.x]
+
+    steps:
+      - name: Verifica o repositório Git
+        uses: actions/checkout@v2
+
+      - name: Instala o node com a versão ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Roda os testes
+        run: |
+          npm test  
+
+  vercel:
+    needs: test 
+    runs-on: ubuntu-latest
+    name: "Deploy da aplicação"
     
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Verifica o repositório Git
+        uses: actions/checkout@v2
+
+      - name: Instala o node com a versão 14
+        uses: actions/setup-node@v1
         with:
           node-version: '14'
           registry-url: https://registry.npmjs.org/
 
-      - name: "Deploy to Vercel"
+      - name: "Deploy para a Vercel"
         run: |
           prodRun=""
           if [[ ${GITHUB_REF} == "refs/heads/main" ]]; then
