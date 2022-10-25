@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x, 15.x]
+        node-version: [14]
 
     steps:
       - name: Verifica o repositório Git
@@ -24,9 +24,12 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Instala as dependências
+        run: |
+          npm install
       - name: Roda os testes
         run: |
-          npm test  
+          npm test
 
   vercel:
     needs: test 
