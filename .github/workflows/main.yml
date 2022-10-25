@@ -4,29 +4,25 @@ on:
   push:
     branches-ignore:
       - main
-  pull_request:
-    types: [opened, synchronize]
 
 jobs:
   test:
     runs-on: ubuntu-latest
     name: "Roda os testes da aplicação"
 
-    strategy:
-      matrix:
-        node-version: [14]
-
     steps:
       - name: Verifica o repositório Git
         uses: actions/checkout@v2
 
-      - name: Instala o node com a versão ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - name: Instala o node com a versão 14
+        uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '14'
+
       - name: Instala as dependências
         run: |
           npm install
+
       - name: Roda os testes
         run: |
           npm test
@@ -44,7 +40,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '14'
-          registry-url: https://registry.npmjs.org/
 
       - name: "Deploy para a Vercel"
         run: |
