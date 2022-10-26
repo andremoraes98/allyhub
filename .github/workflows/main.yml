@@ -1,13 +1,9 @@
 name: CI/CD
 
 on:
- release:
-   types:
-     - published
- push:
-   branches:
-     - main
- workflow_dispatch:
+  release:
+    types: [published]
+  push
 
 jobs:
   eslint:
