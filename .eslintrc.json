@@ -16,7 +16,7 @@
     "plugins": [
         "react"
     ],
-    "ignorePatterns": ["reportWebVitals.js", "*.test.js"],
+    "ignorePatterns": ["*.js"],
     "rules": {
     }
 }
