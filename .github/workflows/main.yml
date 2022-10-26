@@ -1,0 +1,77 @@
+name: CI/CD
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    name: Confere os padrões de ESLint
+
+    steps:
+      - name: Verifica o repositório Git
+        uses: actions/checkout@v3
+
+      - name: Instala o node com a versão 14
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Instala as dependências
+        run: |
+          npm install
+
+      - name: Confere os padrões de ESLint
+        run: |
+          npx eslint .
+
+  test:
+    needs: eslint 
+    runs-on: ubuntu-latest
+    name: Roda os testes da aplicação
+
+    steps:
+      - name: Verifica o repositório Git
+        uses: actions/checkout@v3
+
+      - name: Instala o node com a versão 14
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Instala as dependências
+        run: |
+          npm install
+
+      - name: Roda os testes
+        run: |
+          npm test
+
+  vercel:
+    needs: test 
+    runs-on: ubuntu-latest
+    name: Deploy da aplicação
+    
+    steps:
+      - name: Verifica o repositório Git
+        uses: actions/checkout@v3
+
+      - name: Instala o node com a versão 14
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Deploy para a Vercel
+        run: |
+          prodRun=""
+          if [[ ${GITHUB_REF} == "refs/heads/main" ]]; then
+            prodRun="--prod"
+          fi
+
+          npx vercel --token ${VERCEL_TOKEN} $prodRun
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
