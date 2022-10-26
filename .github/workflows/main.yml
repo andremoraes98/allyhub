@@ -1,8 +1,13 @@
 name: CI/CD
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened, closed]
+ release:
+   types:
+     - published
+ push:
+   branches:
+     - main
+ workflow_dispatch:
 
 jobs:
   eslint:
