@@ -5,7 +5,7 @@ import './Header.css';
 function Header() {
   return (
     <header
-      className="d-flex justify-content-around align-items-center"
+      className="d-flex justify-content-around align-items-center flex-wrap"
     >
       <img
         src={image}
