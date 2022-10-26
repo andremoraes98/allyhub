@@ -1,0 +1,17 @@
+header {
+  margin: 10px 0;
+  padding: 10px 0;
+  box-shadow: 0 5px 5px gray;
+  z-index: 1;
+}
+
+header .mission {
+  font-family: 'Open Sans', sans-serif;
+  color: #737373;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.img-logo {
+  width: 250px;
+}
