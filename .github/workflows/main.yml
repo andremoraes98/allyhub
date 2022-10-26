@@ -1,8 +1,11 @@
 name: CI/CD
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened, closed]
+  release:
+    types: [published]
+  push:
+    branches:
+      - '*'
 
 jobs:
   eslint:
