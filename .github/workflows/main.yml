@@ -1,4 +1,4 @@
-name: "Deploy"
+name: CI/CD
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 jobs:
   eslint:
     runs-on: ubuntu-latest
-    name: "Confere os padrões de ESLint"
+    name: Confere os padrões de ESLint
 
     steps:
       - name: Verifica o repositório Git
@@ -30,7 +30,7 @@ jobs:
   test:
     needs: eslint 
     runs-on: ubuntu-latest
-    name: "Roda os testes da aplicação"
+    name: Roda os testes da aplicação
 
     steps:
       - name: Verifica o repositório Git
@@ -52,7 +52,7 @@ jobs:
   vercel:
     needs: test 
     runs-on: ubuntu-latest
-    name: "Deploy da aplicação"
+    name: Deploy da aplicação
     
     steps:
       - name: Verifica o repositório Git
@@ -63,7 +63,7 @@ jobs:
         with:
           node-version: '14'
 
-      - name: "Deploy para a Vercel"
+      - name: Deploy para a Vercel
         run: |
           prodRun=""
           if [[ ${GITHUB_REF} == "refs/heads/main" ]]; then
