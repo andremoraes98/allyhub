@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Instala o node com a versão 14
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: '14'
 
@@ -37,7 +37,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Instala o node com a versão 14
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: '14'
 
