@@ -1,0 +1,20 @@
+h2, p {
+  color: #737373;
+}
+
+p {
+  font-size: x-large;
+}
+
+.main-button {
+  width: 50%;
+  min-width: 200px;
+  max-width: 250px;
+  height: 100px;
+}
+
+.main-button button {
+  width: 100%;
+  height: 100%;
+  font-size: larger;
+}
