@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Main = () => (
-  <h1 class="text-center">
+  <h1 className="text-center">
       First
   </h1>
 )
