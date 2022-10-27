@@ -60,7 +60,7 @@ function PessoalForm() {
             <Form noValidate onSubmit={handleSubmit}>
               <CustomInput
                 id="name"
-                label="Name"
+                label="Nome"
                 type="text"
                 errors={errors}
                 handleChange={handleChange}
