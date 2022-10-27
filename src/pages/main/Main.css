@@ -17,4 +17,12 @@ p {
   width: 100%;
   height: 100%;
   font-size: larger;
+  color: #0000ff;
+  border-color: #0000ff;
+}
+
+.main-button button:hover {
+  color: white;
+  border-color: white;
+  background-color: #0000ff;
 }

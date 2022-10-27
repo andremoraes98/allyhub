@@ -1,9 +1,10 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
+import CustomInput from '../../components/custom input/CustomInput';
+import './PessoalForm.css';
 
 function PessoalForm() {
   const navigate = useNavigate();
@@ -29,101 +30,94 @@ function PessoalForm() {
     } else if (!cpf) {
       errors.cpf = 'CPF é obrigatório!';
     } else if (
-      !/^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}/.test(cpf)
+      Number.isNaN(Number(cpf))
     ) {
-      errors.cpf = 'Insira um CPF válido!';
+      errors.cpf = 'Insira apenas números!';
+    } else if (cpf.length !== 11) {
+      errors.cpf = 'Insira 11 números!';
     }
     return errors;
   };
 
   return (
-    <Formik
-      initialValues={{
-        name: '',
-        email: '',
-        cellphone: '',
-        cpf: '',
-      }}
-      validate={validateForms}
-      onSubmit={() => navigate('/success')}
-    >
-      {
-          ({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleSubmit,
-          }) => (
-            <Form noValidate onSubmit={handleSubmit}>
-              <FloatingLabel className="my-3 mx-5" controlId="name" label="Name">
-                <Form.Control
+    <>
+      <h2 className="text-center my-5">First, let us know you!</h2>
+      <Formik
+        initialValues={{
+          name: '',
+          email: '',
+          cellphone: '',
+          cpf: '',
+        }}
+        validate={validateForms}
+        onSubmit={() => navigate('/location')}
+      >
+        {
+            ({
+              values,
+              errors,
+              touched,
+              handleChange,
+              handleSubmit,
+            }) => (
+              <Form
+                noValidate
+                onSubmit={handleSubmit}
+                className="mx-auto"
+              >
+                <CustomInput
+                  id="name"
+                  label="Nome"
                   type="text"
-                  placeholder="Name"
-                  onChange={handleChange}
-                  value={values.name}
-                  isValid={touched.name && !errors.name}
-                  isInvalid={!!errors.name}
+                  errors={errors}
+                  handleChange={handleChange}
+                  value={values}
+                  touched={touched}
                 />
-                <Form.Control.Feedback type="invalid">
-                  {errors.name}
-                </Form.Control.Feedback>
-              </FloatingLabel>
 
-              <FloatingLabel className="my-3 mx-5" controlId="email" label="Email">
-                <Form.Control
+                <CustomInput
+                  id="email"
+                  label="Email"
                   type="email"
-                  placeholder="Email"
-                  onChange={handleChange}
-                  value={values.email}
-                  isValid={touched.email && !errors.email}
-                  isInvalid={!!errors.email}
+                  errors={errors}
+                  handleChange={handleChange}
+                  value={values}
+                  touched={touched}
                 />
-                <Form.Control.Feedback type="invalid">
-                  {errors.email}
-                </Form.Control.Feedback>
-              </FloatingLabel>
 
-              <FloatingLabel className="my-3 mx-5" controlId="cellphone" label="Telefone (com DDD)">
-                <Form.Control
+                <CustomInput
+                  id="cellphone"
+                  label="Telefone (com DDD)"
                   type="text"
-                  placeholder="Telefone (com DDD)"
-                  onChange={handleChange}
-                  value={values.cellphone}
-                  isValid={touched.cellphone && !errors.cellphone}
-                  isInvalid={!!errors.cellphone}
+                  errors={errors}
+                  handleChange={handleChange}
+                  value={values}
+                  touched={touched}
                 />
-                <Form.Control.Feedback type="invalid">
-                  {errors.cellphone}
-                </Form.Control.Feedback>
-              </FloatingLabel>
 
-              <FloatingLabel className="my-3 mx-5" controlId="cpf" label="CPF (apenas números)">
-                <Form.Control
+                <CustomInput
+                  id="cpf"
+                  label="CPF"
                   type="text"
-                  placeholder="CPF (apenas números)"
-                  onChange={handleChange}
-                  value={values.cpf}
-                  isValid={touched.cpf && !errors.cpf}
-                  isInvalid={!!errors.cpf}
+                  errors={errors}
+                  handleChange={handleChange}
+                  value={values}
+                  touched={touched}
                 />
-                <Form.Control.Feedback type="invalid">
-                  {errors.cpf}
-                </Form.Control.Feedback>
-              </FloatingLabel>
 
-              <div className="text-center">
-                <Button
-                  variant="outline-primary"
-                  type="submit"
-                >
-                  Enviar
-                </Button>
-              </div>
-            </Form>
-          )
-        }
-    </Formik>
+                <div className="submit-button mx-auto my-3">
+                  <Button
+                    variant="outline-primary"
+                    type="submit"
+                  >
+                    Enviar
+                  </Button>
+                </div>
+              </Form>
+            )
+          }
+      </Formik>
+    </>
   );
 }
 
