@@ -28,10 +28,10 @@ function CustomInput({
 }
 
 CustomInput.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.objectOf(PropTypes.string).isRequired,
   handleChange: PropTypes.func.isRequired,
-  touched: PropTypes.bool.isRequired,
-  errors: PropTypes.string.isRequired,
+  touched: PropTypes.objectOf(PropTypes.bool).isRequired,
+  errors: PropTypes.objectOf(PropTypes.string).isRequired,
   type: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
