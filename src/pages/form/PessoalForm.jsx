@@ -13,25 +13,24 @@ function PessoalForm() {
     name, email, cellphone, cpf,
   }) => {
     const errors = {};
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    const onlyNumbersRegex = /^[0-9]+$/;
+
     if (!name) {
       errors.name = 'Nome é obrigatório!';
     } else if (!email) {
       errors.email = 'Email é obrigatório!';
-    } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)
-    ) {
+    } else if (!emailRegex.test(email)) {
       errors.email = 'Insira um email válido!';
     } else if (!cellphone) {
       errors.cellphone = 'Telefone é obrigatório!';
-    } else if (Number.isNaN(Number(cellphone))) {
+    } else if (!onlyNumbersRegex.test(cellphone)) {
       errors.cellphone = 'Insira apenas números!';
     } else if (cellphone.length < 10) {
       errors.cellphone = 'Insira, no mínimo, 10 números';
     } else if (!cpf) {
       errors.cpf = 'CPF é obrigatório!';
-    } else if (
-      Number.isNaN(Number(cpf))
-    ) {
+    } else if (!onlyNumbersRegex.test(cpf)) {
       errors.cpf = 'Insira apenas números!';
     } else if (cpf.length !== 11) {
       errors.cpf = 'Insira 11 números!';
