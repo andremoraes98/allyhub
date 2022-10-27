@@ -10,7 +10,7 @@ on:
 jobs:
   eslint:
     runs-on: ubuntu-latest
-    name: Confere os padrões de ESLint
+    name: ESLint
 
     steps:
       - name: Verifica o repositório Git
@@ -32,7 +32,7 @@ jobs:
   test:
     needs: eslint 
     runs-on: ubuntu-latest
-    name: Roda os testes da aplicação
+    name: Testa a aplicação
 
     steps:
       - name: Verifica o repositório Git
@@ -54,7 +54,7 @@ jobs:
   vercel:
     needs: test 
     runs-on: ubuntu-latest
-    name: Deploy da aplicação
+    name: Deploy na Vercel
     
     steps:
       - name: Verifica o repositório Git
