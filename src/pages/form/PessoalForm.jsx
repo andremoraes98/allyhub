@@ -105,7 +105,7 @@ function PessoalForm() {
                   touched={touched}
                 />
 
-                <div className="submit-button mx-auto">
+                <div className="submit-button mx-auto my-3">
                   <Button
                     variant="outline-primary"
                     type="submit"
