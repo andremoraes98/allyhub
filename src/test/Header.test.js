@@ -1,9 +1,13 @@
 import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import Header from '../components/header/Header';
 
 describe('Testa o componente Header:', () => {
   beforeEach(() => {
-    render(<Header />);
+    render(
+    <BrowserRouter>
+      <Header />
+    </BrowserRouter>);
   });
 
   test('se a imagem foi renderizada;', () => {
