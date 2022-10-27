@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import { Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import CustomInput from '../../components/custom input/CustomInput';
+import './PessoalForm.css';
 
 function PessoalForm() {
   const navigate = useNavigate();
@@ -39,77 +40,84 @@ function PessoalForm() {
   };
 
   return (
-    <Formik
-      initialValues={{
-        name: '',
-        email: '',
-        cellphone: '',
-        cpf: '',
-      }}
-      validate={validateForms}
-      onSubmit={() => navigate('/location')}
-    >
-      {
-          ({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleSubmit,
-          }) => (
-            <Form noValidate onSubmit={handleSubmit}>
-              <CustomInput
-                id="name"
-                label="Nome"
-                type="text"
-                errors={errors}
-                handleChange={handleChange}
-                value={values}
-                touched={touched}
-              />
+    <>
+      <h2 className="text-center my-5">First, let us know you!</h2>
+      <Formik
+        initialValues={{
+          name: '',
+          email: '',
+          cellphone: '',
+          cpf: '',
+        }}
+        validate={validateForms}
+        onSubmit={() => navigate('/location')}
+      >
+        {
+            ({
+              values,
+              errors,
+              touched,
+              handleChange,
+              handleSubmit,
+            }) => (
+              <Form
+                noValidate
+                onSubmit={handleSubmit}
+                className="mx-auto"
+              >
+                <CustomInput
+                  id="name"
+                  label="Nome"
+                  type="text"
+                  errors={errors}
+                  handleChange={handleChange}
+                  value={values}
+                  touched={touched}
+                />
 
-              <CustomInput
-                id="email"
-                label="Email"
-                type="email"
-                errors={errors}
-                handleChange={handleChange}
-                value={values}
-                touched={touched}
-              />
+                <CustomInput
+                  id="email"
+                  label="Email"
+                  type="email"
+                  errors={errors}
+                  handleChange={handleChange}
+                  value={values}
+                  touched={touched}
+                />
 
-              <CustomInput
-                id="cellphone"
-                label="Telefone (com DDD)"
-                type="text"
-                errors={errors}
-                handleChange={handleChange}
-                value={values}
-                touched={touched}
-              />
+                <CustomInput
+                  id="cellphone"
+                  label="Telefone (com DDD)"
+                  type="text"
+                  errors={errors}
+                  handleChange={handleChange}
+                  value={values}
+                  touched={touched}
+                />
 
-              <CustomInput
-                id="cpf"
-                label="CPF"
-                type="text"
-                errors={errors}
-                handleChange={handleChange}
-                value={values}
-                touched={touched}
-              />
+                <CustomInput
+                  id="cpf"
+                  label="CPF"
+                  type="text"
+                  errors={errors}
+                  handleChange={handleChange}
+                  value={values}
+                  touched={touched}
+                />
 
-              <div className="text-center">
-                <Button
-                  variant="outline-primary"
-                  type="submit"
-                >
-                  Enviar
-                </Button>
-              </div>
-            </Form>
-          )
-        }
-    </Formik>
+                <div className="submit-button mx-auto">
+                  <Button
+                    variant="outline-primary"
+                    type="submit"
+                  >
+                    Enviar
+                  </Button>
+                </div>
+              </Form>
+            )
+          }
+      </Formik>
+    </>
   );
 }
 
