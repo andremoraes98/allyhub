@@ -5,6 +5,7 @@ import Pessoal from './pages/forms/pessoal/Pessoal';
 import Location from './pages/forms/location/Location';
 import Main from './pages/main/Main';
 import Success from './pages/success/Success';
+import NotFound from './pages/not found/NotFound';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/location" element={<Location />} />
         <Route exact path="/success" element={<Success />} />
         <Route exact path="/" element={<Main />} />
+        <Route exact path="*" element={<NotFound />} />
       </Routes>
     </>
   );
