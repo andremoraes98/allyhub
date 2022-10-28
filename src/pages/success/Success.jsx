@@ -21,7 +21,7 @@ function Success() {
           />
         </div>
       </main>
-      <div className="blue-button mx-auto my-5">
+      <div className="main-button text-center mx-auto py-4">
         <Button
           variant="outline-primary"
           type="button"
