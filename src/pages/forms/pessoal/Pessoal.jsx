@@ -40,7 +40,7 @@ function PessoalForm() {
 
   return (
     <>
-      <h2 className="text-center my-5">Primeiramente, deixe a gente te conhecer!</h2>
+      <h2 className="text-center my-5">Primeiramente, deixe a gente te conhecer melhor!</h2>
       <Formik
         initialValues={{
           name: '',
@@ -104,7 +104,7 @@ function PessoalForm() {
                   touched={touched}
                 />
 
-                <div className="submit-button mx-auto my-3">
+                <div className="blue-button mx-auto my-3">
                   <Button
                     variant="outline-primary"
                     type="submit"
