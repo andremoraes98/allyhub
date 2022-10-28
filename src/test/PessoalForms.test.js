@@ -23,22 +23,22 @@ describe('Testa a página PersonalForm:', () => {
   });
 
   test('checa se há um input com o label "Nome";', () => {
-    const inputName = screen.getByLabelText('Nome');
+    const inputName = screen.getByLabelText('Nome*');
     expect(inputName).toBeInTheDocument();
   });
 
   test('checa se há um input com o label "Email";', () => {
-    const inputEmail = screen.getByLabelText('Email');
+    const inputEmail = screen.getByLabelText('Email*');
     expect(inputEmail).toBeInTheDocument();
   });
 
   test('checa se há um input com o label "Telefone (com DDD)";', () => {
-    const inputCellphone = screen.getByLabelText('Telefone (com DDD)');
+    const inputCellphone = screen.getByLabelText('Telefone (com DDD)*');
     expect(inputCellphone).toBeInTheDocument();
   });
 
   test('checa se há um input com o label "CPF";', () => {
-    const inputCPF = screen.getByLabelText('CPF');
+    const inputCPF = screen.getByLabelText('CPF*');
     expect(inputCPF).toBeInTheDocument();
   });
 
