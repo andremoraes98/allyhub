@@ -9,10 +9,9 @@ describe('Testa a página PersonalForm:', () => {
   
     render(
       <LocationProvider>
-        <BrowserRouter>
           <Location />
-        </BrowserRouter>
-      </LocationProvider>
+      </LocationProvider>,
+      { wrapper: BrowserRouter },
     );
   });
 
@@ -23,7 +22,7 @@ describe('Testa a página PersonalForm:', () => {
 
   test('checa se o conteúdo do título é o esperado;', () => {
     const headerTItle = screen.getByRole('heading', { level: 2 });
-    expect(headerTItle).toHaveTextContent('Onde você queria fazer um intercâmbio?');
+    expect(headerTItle).toHaveTextContent('Qual lugar do mundo você deseja se conectar?');
   });
 
   test('checa se há um select para selecionar o país;', () => {
@@ -39,6 +38,11 @@ describe('Testa a página PersonalForm:', () => {
   test('checa se há um botão na página;', () => {
     const submitButton = screen.getByRole('button');
     expect(submitButton).toBeInTheDocument();
+  });
+  
+  test('se o conteúdo do botão está correto;', () => {
+    const button = screen.getByRole('button');
+    expect(button).toHaveTextContent("Let's go!");
   });
 
   test('checa se o botão tem o atributo "type" igual a "submit";', () => {

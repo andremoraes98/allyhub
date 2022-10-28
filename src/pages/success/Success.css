@@ -1,0 +1,18 @@
+.travel-image {
+  max-width: 350px;
+  max-height: 350px;
+  min-width: 250px;
+  min-height: 250px;
+  width: 60vw;
+  height: 60vw;
+}
+
+.travel-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.main-success section {
+  width: 60%;
+}

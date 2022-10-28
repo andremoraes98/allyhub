@@ -8,7 +8,7 @@ function Main() {
 
   return (
     <section className="my-5">
-      <h2 className="text-center m-0 mx-4 py-5">
+      <h2 className="text-center mx-3 py-5">
         We are a tech provider for the International Education Industry!
       </h2>
 

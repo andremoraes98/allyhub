@@ -4,11 +4,7 @@ import PersonalForm from '../pages/forms/pessoal/Pessoal';
 
 describe('Testa a página PersonalForm:', () => {
   beforeEach(() => {
-    render(
-      <BrowserRouter>
-        <PersonalForm />
-      </BrowserRouter>
-    );
+    render(<PersonalForm />, { wrapper: BrowserRouter });
   });
 
   test('checa se há um título na página;', () => {
@@ -18,7 +14,7 @@ describe('Testa a página PersonalForm:', () => {
 
   test('checa se o conteúdo do título é o esperado;', () => {
     const headerTItle = screen.getByRole('heading', { level: 2 });
-    expect(headerTItle).toHaveTextContent('Primeiramente, deixe a gente te conhecer!');
+    expect(headerTItle).toHaveTextContent('Primeiramente, deixe a gente te conhecer melhor!');
   });
 
   test('checa se todos os inputs foram renderizados;', () => {
