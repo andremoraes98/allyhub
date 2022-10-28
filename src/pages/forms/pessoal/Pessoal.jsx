@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import Form from 'react-bootstrap/Form';
-import { Formik } from 'formik';
+import { Formik, Form } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import CustomInput from '../../../components/custom input/CustomInput';
 import './Pessoal.css';
@@ -58,6 +57,7 @@ function PessoalForm() {
               touched,
               handleChange,
               handleSubmit,
+              submitCount,
             }) => (
               <Form
                 noValidate
@@ -72,6 +72,7 @@ function PessoalForm() {
                   handleChange={handleChange}
                   value={values}
                   touched={touched}
+                  submitCount={submitCount}
                 />
 
                 <CustomInput
@@ -82,6 +83,7 @@ function PessoalForm() {
                   handleChange={handleChange}
                   value={values}
                   touched={touched}
+                  submitCount={submitCount}
                 />
 
                 <CustomInput
@@ -92,6 +94,7 @@ function PessoalForm() {
                   handleChange={handleChange}
                   value={values}
                   touched={touched}
+                  submitCount={submitCount}
                 />
 
                 <CustomInput
@@ -102,6 +105,7 @@ function PessoalForm() {
                   handleChange={handleChange}
                   value={values}
                   touched={touched}
+                  submitCount={submitCount}
                 />
 
                 <div className="blue-button mx-auto my-3">
