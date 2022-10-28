@@ -1,8 +1,6 @@
 import { render, screen} from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import PersonalForm from '../pages/forms/PessoalForm';
-
-let container;
+import PersonalForm from '../pages/forms/pessoal/Pessoal';
 
 describe('Testa a página PersonalForm:', () => {
   beforeEach(() => {
