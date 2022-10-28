@@ -42,7 +42,7 @@ function Location() {
 
   return (
     <section>
-      <h2 className="text-center my-5">Onde você queria fazer um intercâmbio?</h2>
+      <h2 className="text-center my-5">Onde você quer se conectar?</h2>
       <Form
         className="mx-auto"
         onSubmit={() => navigate('/success')}
