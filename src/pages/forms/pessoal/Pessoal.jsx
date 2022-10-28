@@ -2,14 +2,14 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Formik, Form } from 'formik';
 import { useNavigate } from 'react-router-dom';
+import { cpf } from 'cpf-cnpj-validator';
 import CustomInput from '../../../components/custom input/CustomInput';
-import './Pessoal.css';
 
 function PessoalForm() {
   const navigate = useNavigate();
 
   const validateForms = ({
-    name, email, cellphone, cpf,
+    name, email, cellphone, cpfInput,
   }) => {
     const errors = {};
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -27,12 +27,14 @@ function PessoalForm() {
       errors.cellphone = 'Insira apenas números!';
     } else if (cellphone.length < 10) {
       errors.cellphone = 'Insira, no mínimo, 10 números';
-    } if (!cpf) {
-      errors.cpf = 'CPF é obrigatório!';
-    } else if (!onlyNumbersRegex.test(cpf)) {
-      errors.cpf = 'Insira apenas números!';
-    } else if (cpf.length !== 11) {
-      errors.cpf = 'Insira 11 números!';
+    } if (!cpfInput) {
+      errors.cpfInput = 'CPF é obrigatório!';
+    } else if (!onlyNumbersRegex.test(cpfInput)) {
+      errors.cpfInput = 'Insira apenas números!';
+    } else if (cpfInput.length !== 11) {
+      errors.cpfInput = 'Insira 11 números!';
+    } else if (!cpf.isValid(cpfInput)) {
+      errors.cpfInput = 'CPF inválido!';
     }
     return errors;
   };
@@ -45,7 +47,7 @@ function PessoalForm() {
           name: '',
           email: '',
           cellphone: '',
-          cpf: '',
+          cpfInput: '',
         }}
         validate={validateForms}
         onSubmit={() => navigate('/location')}
@@ -89,7 +91,7 @@ function PessoalForm() {
                 <CustomInput
                   id="cellphone"
                   label="Telefone (com DDD)"
-                  type="text"
+                  type="tel"
                   errors={errors}
                   handleChange={handleChange}
                   value={values}
@@ -98,7 +100,7 @@ function PessoalForm() {
                 />
 
                 <CustomInput
-                  id="cpf"
+                  id="cpfInput"
                   label="CPF"
                   type="text"
                   errors={errors}
@@ -108,7 +110,7 @@ function PessoalForm() {
                   submitCount={submitCount}
                 />
 
-                <div className="blue-button mx-auto my-3">
+                <div className="main-button text-center mx-auto py-4">
                   <Button
                     variant="outline-primary"
                     type="submit"
