@@ -7,7 +7,7 @@ function CustomInput({
   value, handleChange, touched, errors, type, label, id, submitCount,
 }) {
   return (
-    <FloatingLabel className="m3" controlId={id} label={`${label}*`}>
+    <FloatingLabel className="m-3" controlId={id} label={`${label}*`}>
       <Form.Control
         type={type}
         placeholder={`${label}*`}
