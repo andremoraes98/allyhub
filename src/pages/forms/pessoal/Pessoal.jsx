@@ -92,7 +92,7 @@ function PessoalForm() {
                 <CustomInput
                   id="cellphone"
                   label="Telefone (com DDD)"
-                  type="number"
+                  type="tel"
                   errors={errors}
                   handleChange={handleChange}
                   value={values}
@@ -103,7 +103,7 @@ function PessoalForm() {
                 <CustomInput
                   id="cpfInput"
                   label="CPF"
-                  type="number"
+                  type="text"
                   errors={errors}
                   handleChange={handleChange}
                   value={values}
