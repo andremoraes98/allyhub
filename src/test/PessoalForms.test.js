@@ -1,8 +1,6 @@
-import ReactDOM from 'react-dom/client';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { render, screen} from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import PersonalForm from '../pages/form/PessoalForm';
+import PersonalForm from '../pages/forms/PessoalForm';
 
 let container;
 
