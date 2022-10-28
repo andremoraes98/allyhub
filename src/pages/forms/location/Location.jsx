@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Select from 'react-select';
 import { useNavigate } from 'react-router-dom';
 import LocationContext from '../../../context/LocationContext';
 import './Location.css';
@@ -12,82 +11,70 @@ function Location() {
   } = useContext(LocationContext);
 
   const [selectedCities, setSelectedCities] = useState([]);
-  const [location, setLocation] = useState({ country: '', city: '' });
+  const [location, setLocation] = useState({ country: [], city: [] });
   const navigate = useNavigate();
+
+  const handleCountryChange = (values) => {
+    const countryInitials = values.map(({ value }) => value);
+    const filteredCities = cities
+      .filter(({ countryCode }) => countryInitials.includes(countryCode))
+      .sort((a, b) => {
+        if (a.label > b.label) {
+          return 1;
+        } if (a.label < b.label) {
+          return -1;
+        } return 0;
+      });
+    if (filteredCities.length === 0) {
+      setSelectedCities([{ value: 'Capital', label: 'Capital' }]);
+    } else {
+      setSelectedCities(filteredCities);
+    }
+
+    const countryName = values.map(({ label }) => label);
+    setLocation({ country: countryName, city: [] });
+  };
+
+  const handleCityChange = (values) => {
+    const cityName = values.map(({ label }) => label);
+    setLocation((prevState) => ({ ...prevState, city: cityName }));
+  };
+
+  const isButtonDisabled = () => {
+    if (location.country.length === 0 || location.city.length === 0) {
+      return true;
+    } return false;
+  };
 
   useEffect(() => {
     getCities();
     getCountries();
   }, []);
 
-  const handleCountryChange = ({ target: { value } }) => {
-    const filteredCities = cities.filter(({ countryCode }) => countryCode === value);
-    setSelectedCities(filteredCities);
-    setLocation({ country: value, city: '' });
-  };
-
-  const handleCityChange = ({ target: { value } }) => {
-    if (value !== 'default') {
-      setLocation((prevState) => ({ ...prevState, city: value }));
-    } else {
-      setLocation((prevState) => ({ ...prevState, city: '' }));
-    }
-  };
-
-  const isButtonDisabled = () => {
-    if (location.country === '' || location.city === '') {
-      return true;
-    } return false;
-  };
-
   return (
     <section>
-      <h2 className="text-center my-5">Qual lugar do mundo você deseja se conectar?</h2>
-      <Form
+      <h2 className="text-center my-5 mx-3">Quais lugares do mundo você deseja se conectar?</h2>
+      <form
         className="mx-auto"
         onSubmit={() => navigate('/success')}
       >
-        <FloatingLabel
-          controlId="country"
-          label="País"
-          defaultValue="default"
+        <Select
+          className="basic-multi-select m-3"
+          classNamePrefix="select"
+          options={countries}
+          isMulti
           onChange={handleCountryChange}
-          className="mx-3 my-3"
-        >
-          <Form.Select aria-label="Escolha um País!">
-            <option value="default" disabled={location.country !== ''}>Escolha um país</option>
-            { countries.map(({ name, code }) => (
-              <option
-                key={code}
-                value={code}
-              >
-                {name}
-              </option>
-            ))}
-          </Form.Select>
-        </FloatingLabel>
+          placeholder="Selecione um ou mais países..."
+        />
 
-        <FloatingLabel
-          controlId="city"
-          label="Cidade"
-          defaultValue="default"
+        <Select
+          className="basic-multi-select m-3"
+          classNamePrefix="select"
+          options={selectedCities}
+          isMulti
           onChange={handleCityChange}
-          className="mx-3 my-3"
-        >
-          <Form.Select disabled={location.country === ''} aria-label="Escolha uma Cidade!">
-            <option value="default" disabled={location.city !== ''}>Escolha uma cidade</option>
-            { selectedCities.length === 0
-              ? <option value="capital">Capital</option>
-              : selectedCities.map(({ code, name, namePTBR }) => (
-                <option
-                  key={code}
-                  value={!namePTBR ? name : namePTBR}
-                >
-                  {!namePTBR ? name : namePTBR}
-                </option>
-              ))}
-          </Form.Select>
-        </FloatingLabel>
+          placeholder="Selecione uma ou mais cidades..."
+        />
 
         <div className="location-button mx-auto my-3">
           <Button
@@ -98,7 +85,7 @@ function Location() {
             Let&apos;s go!
           </Button>
         </div>
-      </Form>
+      </form>
     </section>
   );
 }

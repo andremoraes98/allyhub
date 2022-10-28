@@ -22,16 +22,16 @@ describe('Testa a página PersonalForm:', () => {
 
   test('checa se o conteúdo do título é o esperado;', () => {
     const headerTItle = screen.getByRole('heading', { level: 2 });
-    expect(headerTItle).toHaveTextContent('Qual lugar do mundo você deseja se conectar?');
+    expect(headerTItle).toHaveTextContent('Quais lugares do mundo você deseja se conectar?');
   });
 
   test('checa se há um select para selecionar o país;', () => {
-    const countrySelect = screen.getByLabelText('Escolha um País!');
+    const countrySelect = screen.getByText('Selecione um ou mais países...');
     expect(countrySelect).toBeInTheDocument();
   });
 
   test('checa se há um select para selecionar a cidade;', () => {
-    const citySelect = screen.getByLabelText('Escolha uma Cidade!');
+    const citySelect = screen.getByText('Selecione uma ou mais cidades...');
     expect(citySelect).toBeInTheDocument();
   });
 

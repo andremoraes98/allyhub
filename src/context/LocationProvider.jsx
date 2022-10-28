@@ -12,11 +12,13 @@ function LocationProvider({ children }) {
       const fetchedCountries = await result.json();
 
       const selectedCountries = fetchedCountries
-        .map(({ name, code }) => ({ name, code }))
+        .map(({ name, code }) => ({
+          label: name, value: code,
+        }))
         .sort((a, b) => {
-          if (a.name > b.name) {
+          if (a.label > b.label) {
             return 1;
-          } if (a.name < b.name) {
+          } if (a.label < b.label) {
             return -1;
           } return 0;
         });
@@ -35,16 +37,25 @@ function LocationProvider({ children }) {
       const selectedCities = fetchedCities
         .map(({
           country_code: countryCode,
-          code,
           name_ptbr: namePTBR,
           name,
-        }) => ({
-          countryCode, code, name, namePTBR,
-        }))
+        }) => {
+          if (!namePTBR) {
+            return {
+              countryCode,
+              value: name,
+              label: name,
+            };
+          } return {
+            countryCode,
+            value: namePTBR,
+            label: namePTBR,
+          };
+        })
         .sort((a, b) => {
-          if (a.name > b.name) {
+          if (a.value > b.value) {
             return 1;
-          } if (a.name < b.name) {
+          } if (a.value < b.value) {
             return -1;
           } return 0;
         });
