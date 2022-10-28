@@ -15,6 +15,7 @@ function CustomInput({
         value={value[id]}
         isValid={touched[id] && !errors[id]}
         isInvalid={!!errors[id] && submitCount > 0}
+        pattern={id === 'cpfInput' ? '[0-9]*' : null}
       />
       <Form.Control.Feedback type="invalid">
         {errors[id]}
