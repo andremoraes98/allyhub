@@ -11,7 +11,15 @@ function LocationProvider({ children }) {
       const result = await fetch('https://amazon-api.sellead.com/country');
       const fetchedCountries = await result.json();
 
-      const selectedCountries = fetchedCountries.map(({ name, code }) => ({ name, code }));
+      const selectedCountries = fetchedCountries
+        .map(({ name, code }) => ({ name, code }))
+        .sort((a, b) => {
+          if (a.name > b.name) {
+            return 1;
+          } if (a.name < b.name) {
+            return -1;
+          } return 0;
+        });
 
       setCountries(selectedCountries);
     } catch (e) {
@@ -24,14 +32,22 @@ function LocationProvider({ children }) {
       const result = await fetch('https://amazon-api.sellead.com/city');
       const fetchedCities = await result.json();
 
-      const selectedCities = fetchedCities.map(({
-        country_code: countryCode,
-        code,
-        name_ptbr: namePTBR,
-        name,
-      }) => ({
-        countryCode, code, name, namePTBR,
-      }));
+      const selectedCities = fetchedCities
+        .map(({
+          country_code: countryCode,
+          code,
+          name_ptbr: namePTBR,
+          name,
+        }) => ({
+          countryCode, code, name, namePTBR,
+        }))
+        .sort((a, b) => {
+          if (a.name > b.name) {
+            return 1;
+          } if (a.name < b.name) {
+            return -1;
+          } return 0;
+        });
 
       setCities(selectedCities);
     } catch (e) {
