@@ -1,0 +1,19 @@
+.location-button {
+  max-width: 200px;
+  height: 50px;
+}
+
+.location-button button {
+  width: 100%;
+  height: 100%;
+  font-size: large;
+  color: #222222;
+  border-color: #222222;
+  font-size: x-large;
+}
+
+.location-button button:hover {
+  color: #222222;
+  border-color: #222222;
+  background-color: #00FF8B;
+}

@@ -18,17 +18,17 @@ function PessoalForm() {
 
     if (!name) {
       errors.name = 'Nome é obrigatório!';
-    } else if (!email) {
+    } if (!email) {
       errors.email = 'Email é obrigatório!';
     } else if (!emailRegex.test(email)) {
       errors.email = 'Insira um email válido!';
-    } else if (!cellphone) {
+    } if (!cellphone) {
       errors.cellphone = 'Telefone é obrigatório!';
     } else if (!onlyNumbersRegex.test(cellphone)) {
       errors.cellphone = 'Insira apenas números!';
     } else if (cellphone.length < 10) {
       errors.cellphone = 'Insira, no mínimo, 10 números';
-    } else if (!cpf) {
+    } if (!cpf) {
       errors.cpf = 'CPF é obrigatório!';
     } else if (!onlyNumbersRegex.test(cpf)) {
       errors.cpf = 'Insira apenas números!';
@@ -40,7 +40,7 @@ function PessoalForm() {
 
   return (
     <>
-      <h2 className="text-center my-5">First, let us know you!</h2>
+      <h2 className="text-center my-5">Primeiramente, deixe a gente te conhecer!</h2>
       <Formik
         initialValues={{
           name: '',
@@ -109,7 +109,7 @@ function PessoalForm() {
                     variant="outline-primary"
                     type="submit"
                   >
-                    Enviar
+                    Escolher um destino!
                   </Button>
                 </div>
               </Form>
