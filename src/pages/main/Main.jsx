@@ -19,7 +19,7 @@ function Main() {
       <div className="main-button text-center mx-auto py-4">
         <Button
           variant="outline-primary"
-          onClick={() => navigate('/forms')}
+          onClick={() => navigate('/pessoal')}
         >
           Let&apos;s do it together!
         </Button>
