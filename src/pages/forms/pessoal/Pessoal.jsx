@@ -4,7 +4,6 @@ import { Formik, Form } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { cpf } from 'cpf-cnpj-validator';
 import CustomInput from '../../../components/custom input/CustomInput';
-import './Pessoal.css';
 
 function PessoalForm() {
   const navigate = useNavigate();
@@ -111,7 +110,7 @@ function PessoalForm() {
                   submitCount={submitCount}
                 />
 
-                <div className="blue-button mx-auto my-3">
+                <div className="main-button text-center mx-auto py-4">
                   <Button
                     variant="outline-primary"
                     type="submit"
