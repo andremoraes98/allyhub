@@ -18,8 +18,10 @@ describe('Testa a página PersonalForm:', () => {
   });
 
   test('checa se todos os inputs foram renderizados;', () => {
-    const inputs = screen.getAllByRole('textbox');
-    expect(inputs.length).toBe(4);
+    const textInputs = screen.getAllByRole('textbox');
+    const numberInputs = screen.getAllByRole('spinbutton');
+    expect(textInputs.length).toBe(2);
+    expect(numberInputs.length).toBe(2);
   });
 
   test('checa se há um input com o label "Nome";', () => {
