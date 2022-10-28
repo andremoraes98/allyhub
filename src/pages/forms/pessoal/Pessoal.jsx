@@ -3,8 +3,8 @@ import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
-import CustomInput from '../../components/custom input/CustomInput';
-import './PessoalForm.css';
+import CustomInput from '../../../components/custom input/CustomInput';
+import './Pessoal.css';
 
 function PessoalForm() {
   const navigate = useNavigate();
