@@ -4,10 +4,7 @@ import Header from '../components/header/Header';
 
 describe('Testa o componente Header:', () => {
   beforeEach(() => {
-    render(
-    <BrowserRouter>
-      <Header />
-    </BrowserRouter>);
+    render(<Header />, { wrapper: BrowserRouter });
   });
 
   test('se a imagem foi renderizada;', () => {
