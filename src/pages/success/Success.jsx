@@ -8,8 +8,8 @@ function Success() {
   const navigate = useNavigate();
   return (
     <>
-      <main className="main-success mt-5 text-center d-flex align-items-center flex-wrap justify-content-around">
-        <section className="mx-3">
+      <main className="main-success mt-3 text-center d-flex align-items-center flex-wrap justify-content-around">
+        <section className="mx-1">
           <h2 className="my-5">Bem vindo ao time!</h2>
           <p>Está pronto para mudar o rumo da sua educação?</p>
           <p>Em instantes, você receberá um email com os próximos passos a serem tomados.</p>

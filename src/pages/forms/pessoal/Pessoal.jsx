@@ -40,7 +40,7 @@ function PessoalForm() {
 
   return (
     <>
-      <h2 className="text-center my-5">Primeiramente, deixe a gente te conhecer melhor!</h2>
+      <h2 className="text-center my-5 mx-3">Primeiramente, deixe a gente te conhecer melhor!</h2>
       <Formik
         initialValues={{
           name: '',
