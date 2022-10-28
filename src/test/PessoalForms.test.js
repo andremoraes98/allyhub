@@ -22,7 +22,7 @@ describe('Testa a página PersonalForm:', () => {
 
   test('checa se o conteúdo do título é o esperado;', () => {
     const headerTItle = screen.getByRole('heading', { level: 2 });
-    expect(headerTItle).toHaveTextContent('First, let us know you!');
+    expect(headerTItle).toHaveTextContent('Primeiramente, deixe a gente te conhecer!');
   });
 
   test('checa se todos os inputs foram renderizados;', () => {
