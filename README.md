@@ -4,7 +4,7 @@
 
 ## Descrição :memo:
 
-Esta aplicação foi desenvolvida a partir de um WireFrame disponibilizado durante o Processo Seletivo.
+Esta aplicação foi desenvolvida a partir de um WireFrame disponibilizado durante o Processo Seletivo, com o intuito de marcar destinos de interesse da pessoa usuária.
 
 A partir daí, abstraí as informações de um formulário e implementei algumas páginas a mais: a página principal, a página de *not found* e a página de sucesso.
 
