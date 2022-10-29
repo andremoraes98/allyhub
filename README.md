@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Landing Page - Ally
+![Gif demonstrativo](./src/images/first.gif)
+![Gif demonstrativo](./src/images/second.gif)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição :memo:
 
-## Available Scripts
+Esta aplicação foi desenvolvida a partir de um WireFrame disponibilizado durante o Processo Seletivo.
 
-In the project directory, you can run:
+A partir daí, abstraí as informações de um formulário e implementei algumas páginas a mais: a página principal, a página de *not found* e a página de sucesso.
 
-### `npm start`
+Além disso, a validação do formulário foi realizada utilizando o Formik. Nunca o tinha utilizado antes, mas achei que essa poderia ser uma ótima oportunidade de aprender e colocar uma camada a mais de segurança na minha aplicação.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Ela está hospedada em um domínio, através do Vercel, e pode ser acessada por este link [aqui](https://allyhub.vercel.app/).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Tecnologias :wrench:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ReactJS;
+- ESLint;
+- Vercel;
+- CI/CD;
+- CSS;
+- [React Testing Library](https://testing-library.com/);
+- [BootStrap](https://getbootstrap.com/);
+- [React-BootStrap](https://react-bootstrap.github.io/);
+- [Formik](https://formik.org/docs/overview);
+- [CPF/CNPJ Validator](https://www.npmjs.com/package/cpf-cnpj-validator);
+- [React-Select](https://react-select.com/home).
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Instalando a aplicação :file_cabinet:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Para clonar o repositório para a sua máquina e instalar as dependências, basta rodar o comando: 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- *Para chave SSH* 
 
-### `npm run eject`
+```
+git clone git@github.com:andremoraes98/allyhub.git && cd allyhub && npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Depois das dependências instaladas, basta rodar o comando:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Feito isso, a aplicação estará rodando localmente. Se não configurada uma porta específica, por padrão, a aplicação roda na porta 3000.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Depois que ela estiver rodando, basta seguir o fluxo dos botões dispostos para ter acesso ao formulário.
 
-## Learn More
+--- 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feito com muito empenho, dedicação e esforço por [eu mesmo](https://www.linkedin.com/in/moraesandre/).
